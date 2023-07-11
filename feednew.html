@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tab icon -->
+    <link rel="icon" href="blogo.png" type="image/x-icon">
+    <style>
+        body {
+            background: url(yub.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: sans-serif;
+            color: rgb(70, 181, 255);
+            
+  
+ 
+}
+.form-container {
+  width: 50%;
+  margin: auto;
+  padding: 3%;
+  border: 1px solid #f7f7f7;
+ 
+}
+label {
+  display: block;
+  margin-top: 25px;
+  font-size: 1rem;
+}
+input, textarea {
+  width: 80%;
+  padding: 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+h1 {
+    color: rgb(98, 210, 254);
+}
+button {
+  width: 82.5%;
+  height: 50px;
+  border-radius: 5px;
+  color: #fff;
+  background: red;
+  line-height: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid red;
+  margin-top: 25px;
+  transition: color .4s ease-out, background .4s ease-out;
+}
+button:hover {
+  color: red;
+  background: #fff;
+}
+.errors {
+  display: block;
+  color: red;
+  margin-top: 5px;
+}
+.error {
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+  box-shadow: 0 0 15px 0 rgba(255,36,0,1);
+}
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+}
+    </style>
+    <title>Feed</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Feedback Form</h1>
+        <form name="contactForm" method="post" onsubmit = "return validate()" action="#">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" >
+          <span class="errors"></span><br>
+      
+          <label for="email">Email</label>
+          <input type="text" placeholder="Email address" id="email" name="email" >
+          <span class="errors"></span><br>
+      
+          <label for="phone">Phone</label>
+          <input type="text" placeholder="Phone number" id="phone" name="phone" >
+          <span class="errors"></span><br>
+          
+          <label for="subject">Feedback / Enquiry / Complaint</label>
+          <textarea placeholder="Your message" cols="132" rows="5" name="subject" id="subject"></textarea>
+          <span class="errors"></span><br>
+      
+          <button type="submit" value="Submit">Submit</button>
+        </form>
+      </div>
+
+      <script>
+        var validate = function(e) {
+    var fields = document.querySelectorAll('.form-container textarea, .form-container input[type="text"]');
+    var regEx;
+    var removeSpan;
+    var par;
+    var check = false;
+    var val;
+    var errArr = [];
+
+    for (var i = 0; i < fields.length; i++) {
+        if (fields[i].value === "") {
+          
+            if (fields[i].nextElementSibling.classList.contains('error')) {
+              removeSpan = fields[i].nextElementSibling;
+              par = fields[i].parentNode;
+              par.removeChild(removeSpan);
+              fields[i].nextElementSibling.innerHTML = "Hmmm! " + fields[i].placeholder + " is required?";
+              fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+              check = false;
+              errArr.push(fields[i]);
+            }
+            fields[i].nextElementSibling.innerHTML = "Hmmm! " + fields[i].placeholder + " is required?";
+            fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+            check = false;
+            errArr.push(fields[i]);
+        } else {
+
+            // check if message and name values contain valid characters.
+            if (fields[i].id !== 'email' && fields[i].id !== 'phone') {
+                val = isValidChar(fields[i]);
+                if(val === false) {
+                  fields[i].nextElementSibling.innerHTML = "Are you trying to HACK ME!";
+                  fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+                  check = false;
+                  errArr.push(fields[i]);
+                } else {
+                  fields[i].nextElementSibling.innerHTML = "";
+                  fields[i].style.boxShadow = "none";
+                  check = true;
+                }
+            }
+          
+            if(fields[i].id === 'phone') {
+              val = isValidPhone(fields[i]);
+              if(val === false) {
+                fields[i].nextElementSibling.innerHTML = "Your phone number is not valid?";
+                fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+                check = false;
+                errArr.push(fields[i]);
+              } else {
+                fields[i].nextElementSibling.innerHTML = "";
+                fields[i].style.boxShadow = "none";
+                check = true;  
+              }
+            }
+
+            if (fields[i].id === 'email') {
+                val = isValidEmail(fields[i]);
+                if(val === false) {
+                    fields[i].nextElementSibling.innerHTML = "Your email address is not valid?";
+                    fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+                    check = false;
+                    errArr.push(fields[i]);
+                } else {
+                    fields[i].nextElementSibling.innerHTML = "";
+                    fields[i].style.boxShadow = "none";
+                    check = true;
+                }
+            }
+        }
+    }
+  
+    if(check === false) {
+      var count = 0;
+      var toErr = setInterval(function() {
+        var e = errArr[0].offsetTop + -25;
+        var pos = Math.abs(e);
+        if(count < pos) {
+          count ++;
+          window.scrollTo(0, count);
+        } else {
+          clearInterval(toErr);
+        }
+      }, 1);
+    }
+    
+    return check
+
+    // Helper functions.
+    function isValidEmail(e) {
+        regEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var email = e.value;
+        if (!regEx.test(email)) {
+            return false;
+        }
+    }
+
+    function isValidChar(e) {
+        regEx = /^[a-zA-Z@#$%!?^&*()_+\-=\[\]{};':"\\|,.\/? ]*$/;
+        var value = e.value;
+        if (!regEx.test(value)) {
+            return false;
+        }
+    }
+  
+    function isValidPhone(e) {
+      regEx = /^[+]?[(]?[+]?\d{2,4}[)]?[-\s]?\d{2,8}[-\s]?\d{2,8}$/;
+      var value = e.value;
+      if(!regEx.test(value)) {
+        return false;
+      }
+    }
+};
+      </script>
+       <footer>
+        <p>
+            Bank Of Union © 2023
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Account</title>
+    <link rel="stylesheet" href="openacc.css">
+    <script src="openacc.js"></script>
+
+     <!-- tab icon -->
+     <link rel="icon" href="blogo.png" type="image/x-icon">
+    
+    
+ 
+</head>
+
+<nav>
+   
+    <div class="logo">
+     <div class="blogo">
+        <img src="blogo.png" height="50px">
+      </div>
+      
+       ANK OF UNION
+    </div>
+</nav>
+
+<body>
+    <div class="container">
+        <form id="contact" action="" method="get">
+            <h1>Registration Form</h1>
+            <h3>Please read our Terms and condtions before registering!</h3>
+            <div class="row">
+                <!-- first column -->
+                <div class="column">                        
+                    <fieldset>
+                        <input type="text" placeholder="Full Name *" name="name" id="name" required autofocus>
+                        <div class="error"></div>
+                    </fieldset>
+                    <fieldset>
+                        <input type="text" placeholder="Father name *" name="fname" id="fname" required autofocus>
+                        <div class="error"></div>
+                    </fieldset>
+                    <fieldset>
+                        <input type="email" placeholder="Your email *" name="email" id="email" required autofocus>
+                        <div class="error"></div>
+                    </fieldset>
+                    <fieldset>
+                        <input type="text" placeholder="Date of birth *" name="date" onfocus="(this.type = 'date')" id="date" required autofocus>
+                        <div class="error"></div>
+                    </fieldset>
+                    <!-- adding all country code list -->
+                    <fieldset>
+                        <input type="text" placeholder="Phone number *" name="phone" id="phone" required autofocus>
+                    </fieldset>
+                </div>
+                <!-- second column -->
+                <div class="column">
+                    <fieldset>
+                        <p>What is your gender?</p>
+                        <div class="radio">
+                            <input type="radio" id="male" name="gender" required>
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" id="female" name="gender" required>
+                            <label for="female">Female</label>
+                        </div>
+                        <div class="error"></div>
+                    </fieldset>
+                    <fieldset>
+                        <label for="idCard">Enter your Aadhaar Card Number in given format.</label>
+                        <div class="idCard">
+                            <input type="text" name="idCard" pattern="[0-9]{4}" placeholder="####" maxlength="4"> _
+                            <input type="text" name="idCard" pattern="[0-9]{4}" placeholder="####" maxlength="4"> _ 
+                            <input type="text" name="idCard" pattern="[0-9]{4}" placeholder="####" maxlength="4">
+                        </div>
+                        <div class="error"></div>
+                    </fieldset>
+                    <fieldset>
+                        <p>Upload PAN</p>
+                        <input type="file" id="file" name="file" required>
+                        <div class="error"></div>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="cars">Account Type</label>
+                        <div class="AT">
+<select id="AT" name="AT">
+  <option value="CA">Current Account</option>
+  <option value="SA">Savings Account</option>
+</div>
+</fieldset>
+
+ 
+</select>
+                    </fieldset>
+                </div>
+            </div>
+            <!-- submit button -->
+            <fieldset>
+                <button type="submit" id="button">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+    <script src="openacc.js"></script>
+ 
+ 
+    <!-- Javascript to initialize the code list -->
+    <script>
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+     separateDialCode: true
+     });
+
+     
+  </script>
+
+<footer>
+	<p>
+		Bank Of Union © 2023
+	</p>
+</footer>
+
+</body>
+</html>

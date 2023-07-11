@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- tab icon -->
+     <link rel="icon" href="blogo.png" type="image/x-icon">
+    <title>Loan</title>
+    <style>
+* {
+    margin: 0; padding: 0;
+}
+html, body, #container {
+    height: 100%;
+}
+
+.header1 {
+    width: 100%;
+    height: 100vh;
+    /* height: 500px; */
+    background: url(fam2.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    background-attachment: fixed;  
+    display: flex; 
+   
+}
+.header2 {
+    height: 300px;
+    background: url(hlban.png) no-repeat 50% 50%;
+    background-size: cover;
+   
+}
+main {
+    height: calc(100% - 50px);
+    background: green;
+}
+.half {
+    height: 50%;
+}
+.half:first-child {
+    background: url(discuban.png) no-repeat 50% 50%;
+    background-size: cover;
+   
+}
+.half:last-child {
+    background: url(eduloanban.png) no-repeat 50% 50%;
+    background-size: cover;
+}
+.container1  {
+  position: absolute;
+  left: 2%;
+  top: 108%;
+  /* transform: translate(20%, -100%); */
+  height: 200px;
+  width: 500px;
+  background: #f2f2f2;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+}
+.container3  {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(20%, 530%);
+  height: 200px;
+  width: 500px;
+  background: #f2f2f2;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+}
+.container2  {
+  position: absolute;
+  left: 2%;
+  top: 150%;
+  /* transform: translate(20%, 180%); */
+  height: 200px;
+  width: 500px;
+  background: #f2f2f2;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+}
+
+.content3 {
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  text-align: justify;
+  color: black;
+  padding: 40px;
+  font-family: 'Merriweather', serif;
+}
+.content2 {
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  text-align: justify;
+  color: black;
+  padding: 40px;
+  font-family: 'Merriweather', serif;
+}
+.content1 {
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  text-align: justify;
+  color: black;
+  padding: 40px;
+  font-family: 'Merriweather', serif;
+}
+
+h1 {
+  font-weight: 900;
+  text-align: center;
+}
+
+h3 {
+  font-weight: 300;
+}
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
+}
+/* .blogo{
+  position: absolute;
+  top: 8px;
+  left: 1200px;
+} */
+.logo {
+    top: 18px;
+    left: 5px;
+    line-height: 60px;
+    position: fixed;
+    float: left;
+    margin: -5px 50px;
+    color: rgb(14, 13, 13);
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+    }
+
+nav {
+    position: fixed;
+    width: 100%;
+    line-height: 0px;
+    
+}
+
+
+@media(max-width: 786px) {
+
+    .logo {
+          position: fixed;
+          top: -20px;
+          right: 10px;
+          left: 1px;
+          margin-top: 0px;
+    }
+   
+
+    
+
+}
+.blogo{
+  position: absolute;
+  top: 8px;
+  left: -43px;
+}
+
+/* Width */
+::-webkit-scrollbar{
+  border-radius: 500vh;
+    width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track{
+    border-radius: 500vh;
+    background: #fcfdfd;
+
+}
+/* Handle */
+::-webkit-scrollbar-thumb{
+  border-radius: 500VH;
+    background: linear-gradient(rgb(134, 239, 172), rgb(59, 130, 246), rgb(147, 51, 234));
+}
+
+button {
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border: 0;
+  border-radius: 4px;
+  font-weight: 900;
+  margin: 0 1000px;
+  width: 200px;
+  padding: 20px 0;
+  box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+  transition: 0.4s;
+}
+button:hover {
+  color: white;
+  width:;
+  box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+  background-color: rgba(104, 85, 224, 1);
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <header class="header1"></header>
+    <header class="header2"></header>
+    <main>
+        <section class="half"></section>
+        <section class="half"></section>
+    </main>
+</div>
+
+<div class="container3">
+        <div class="content3">
+            
+            
+          <h1>Education Loan</h1>
+          <h3>Education is the bedrock of social and economic development and our education loan scheme is designed to provide short term funding to enable parents/guardians pay tuition fees for their children/wards.</h3>
+          
+          
+        </div>
+</div>
+<div class="container2">
+    <div class="content2">
+        <h1>Personal Loan</h1></br><h3>Up to ₹1 Cr. at attractive interest rates, get funds for every need</h3></br>
+      <h4>The best time to celebrate YOU, is now!</h4>
+      
+      
+    </div>
+</div>
+<div class="container1">
+<div class="content1">
+            
+            
+    <h1>Home Loan</h1>
+    <h3>Buying a home is now easier than ever. With BOU home loan, we give you the best home loan interest rates on housing finance and a wide selection of property, so you can live your best life. Apply for home loan online with us and avail of our low EMI option and quick processing facility.</h3>
+    
+    
+  </div>
+</div>
+
+<footer>
+    <p>
+        Bank Of Union © 2023
+    </p>
+</footer>
+
+<!-- <div class="blogo">
+    <img src="blogo.png" height="50px">
+  </div> -->
+  <nav>
+   
+    <div class="logo">
+     <div class="blogo">
+        <img src="blogo.png" height="50px">
+      </div>
+      
+       ANK OF UNION
+       <button>Apply For Loan</button>
+    </div>
+    
+   
+        
+</body>
+</html>
